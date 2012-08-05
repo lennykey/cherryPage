@@ -7,7 +7,7 @@
 <fieldset>
 <legend class="legend">Google</legend>
 <ul>
-{% for key,value in google.items() %}
+{% for key,value in google.iteritems() %}
 <li><a href="{{ value }}">{{ key }}</a></li>
 {% endfor %}
 </ul>
@@ -18,7 +18,7 @@
 <fieldset>
 <legend class="legend">Social</legend>
 <ul>
-{% for key,value in social.items() %}
+{% for key,value in social.iteritems() | sort %}
  <li><a href="{{ value }}">{{ key }}</a></li>
 {% endfor %}
 </ul>
@@ -35,5 +35,17 @@
 </ul>
 </fieldset>
 </div>
+
+<div id="testJson">
+<fieldset>
+<legend class="legend">TestJson</legend>
+<ul>
+{% for key,value in testJson.items() %}
+<li><a href="{{ value }}">{{ key }}</a></li>
+{% endfor %}
+</ul>
+</fieldset>
+</div>
+
 
 {% endblock %}

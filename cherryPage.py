@@ -2,6 +2,8 @@ import cherrypy
 import glob
 import os
 from jinja2 import Template, Environment, PackageLoader
+import simplejson as json
+
 
 #jinja2 environment
 jinjaEnv = Environment(loader=PackageLoader('cherryPage', 'templates'))
@@ -106,6 +108,10 @@ class CherryPage(object):
     @cherrypy.expose
     def index(self):
         #template = Template('Hello {{ name }}!')
+        #testJson = json.load('testJson.json') 
+        fileJson = open('testJson.json', 'r')
+        print(fileJson)
+        testJson = json.load(fileJson) 
         google = {'Google' : 'http://www.google.de', 'Gmail' :'http://mail.google.com'}
         social = {'facebook' : 'http://www.facebook.de',
                   'Google+':'https://plus.google.com',
@@ -113,7 +119,8 @@ class CherryPage(object):
                  }
         fun = {'Reddit' : 'http://www.reddit.com'}
         template = jinjaEnv.get_template('index.html')
-        return template.render(name='John Doe', google=google, social=social, fun=fun)
+        return template.render(name='John Doe',
+                 google=testJson['Google'], social=testJson['Social'], fun=fun, testJson=testJson['Test'])
 
 
 cherrypy.tree.mount(CherryPage())
