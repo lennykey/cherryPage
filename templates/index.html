@@ -1,51 +1,18 @@
 {% extends "main.html" %}
 {% block content %}
-<div id="mylegend">
 
+<div ="linksList">
+{% for links in linksList.items() %}
+<div class="links">
+    <fieldset>
+    <legend class="legend">{{links[0]}}</legend>
+    <ul>
+    {% for entries in links[1].items() | sort %}
+        <li><a href="{{entries[1]}}">{{entries[0]}}</a></li>
+    {% endfor %}
+    </ul>
+    </fieldset>
 </div>
-<div id="google">
-<fieldset>
-<legend class="legend">Google</legend>
-<ul>
-{% for key,value in google.iteritems() %}
-<li><a href="{{ value }}">{{ key }}</a></li>
 {% endfor %}
-</ul>
-</fieldset>
 </div>
-
-<div id="social">
-<fieldset>
-<legend class="legend">Social</legend>
-<ul>
-{% for key,value in social.iteritems() | sort %}
- <li><a href="{{ value }}">{{ key }}</a></li>
-{% endfor %}
-</ul>
-</fieldset>
-</div>
-
-<div id="fun">
-<fieldset>
-<legend class="legend">Fun</legend>
-<ul>
-{% for key,value in fun.items() %}
-<li><a href="{{ value }}">{{ key }}</a></li>
-{% endfor %}
-</ul>
-</fieldset>
-</div>
-
-<div id="testJson">
-<fieldset>
-<legend class="legend">TestJson</legend>
-<ul>
-{% for key,value in testJson.items() %}
-<li><a href="{{ value }}">{{ key }}</a></li>
-{% endfor %}
-</ul>
-</fieldset>
-</div>
-
-
 {% endblock %}
