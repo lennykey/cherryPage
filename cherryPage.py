@@ -108,19 +108,22 @@ class CherryPage(object):
     @cherrypy.expose
     def index(self):
         #template = Template('Hello {{ name }}!')
-        #testJson = json.load('testJson.json') 
-        fileJson = open('testJson.json', 'r')
-        print(fileJson)
-        testJson = json.load(fileJson) 
-        google = {'Google' : 'http://www.google.de', 'Gmail' :'http://mail.google.com'}
-        social = {'facebook' : 'http://www.facebook.de',
-                  'Google+':'https://plus.google.com',
-                  'Xing' : 'http://www.xing.de'
-                 }
-        fun = {'Reddit' : 'http://www.reddit.com'}
+        #testjson = json.load('testJson.json') 
+        linksFile = open('links.json', 'r')
+        #print(links)
+        linksList = json.load(linksFile) 
+        #google = {'Google' : 'http://www.google.de', 'Gmail' :'http://mail.google.com'}
+        #social = {'facebook' : 'http://www.facebook.de',
+        #          'Google+':'https://plus.google.com',
+        #          'Xing' : 'http://www.xing.de'
+        #         }
+        #fun = {'Reddit' : 'http://www.reddit.com'}
         template = jinjaEnv.get_template('index.html')
         return template.render(name='John Doe',
-                 google=testJson['Google'], social=testJson['Social'], fun=fun, testJson=testJson['Test'])
+                 google=linksList['Google'],
+                 social=linksList['Social'],
+                 fun=linksList['Fun'],
+                 testJson=linksList['Test'], linksList=linksList)
 
 
 cherrypy.tree.mount(CherryPage())
