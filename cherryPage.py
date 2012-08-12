@@ -110,6 +110,8 @@ class CherryPage(object):
         #template = Template('Hello {{ name }}!')
         #testjson = json.load('testJson.json') 
         linksFile = open('links.json', 'r')
+        pwd = os.getcwd() 
+        print("Ort: " + os.getcwd())
         #print(links)
         linksList = json.load(linksFile) 
         #google = {'Google' : 'http://www.google.de', 'Gmail' :'http://mail.google.com'}
@@ -118,12 +120,23 @@ class CherryPage(object):
         #          'Xing' : 'http://www.xing.de'
         #         }
         #fun = {'Reddit' : 'http://www.reddit.com'}
+
+        #print(linksList)
+        #for key, value in linksList.items():
+        #    print(key)
+        #    for subkey, subvalue in value.items():
+                #print('cool')
+               #if(subvalue is type({})):
+        #        while(isinstance(subvalue, dict)):
+        #            #print("Dict")
+        #            for subsubkey, subsubvalue in subvalue.items():
+        #                print(subsubval ue)
+
+
+
+
         template = jinjaEnv.get_template('index.html')
-        return template.render(name='John Doe',
-                 google=linksList['Google'],
-                 social=linksList['Social'],
-                 fun=linksList['Fun'],
-                 testJson=linksList['Test'], linksList=linksList)
+        return template.render(name='John Doe', linksList=linksList, pwd=pwd)
 
 
 cherrypy.tree.mount(CherryPage())

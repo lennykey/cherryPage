@@ -1,18 +1,18 @@
 {% extends "main.html" %}
 {% block content %}
-
-<div ="linksList">
-{% for links in linksList.items() %}
-<div class="links">
-    <fieldset>
-    <legend class="legend">{{links[0]}}</legend>
-    <ul>
-    {% for entries in links[1].items() | sort %}
-        <li><a href="{{entries[1]}}">{{entries[0]}}</a></li>
-    {% endfor %}
-    </ul>
-    </fieldset>
-</div>
+Ort: {{ pwd }}
+<div>
+<ul>
+{% for key, value in linksList.items() recursive %}
+    <li>
+    {% if value is string %}
+        <a href="{{ value }}">{{ key }}</a>
+    {% else %}
+        {{ key }}
+        <ul>{{ loop(value.items()) }}</ul>
+    {% endif %}
+    </li>
 {% endfor %}
+</ul>
 </div>
 {% endblock %}
