@@ -1,0 +1,104 @@
+/* Css for cherryPage */
+
+*{
+    font-family: verdana;
+    font-size: 12pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+
+}
+
+li{
+    padding-left: 0.5em;
+}
+
+#topBar{
+    width: 100%;
+    height: 3em;
+    border-bottom: solid;
+    border-width: 0.1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#content{
+    margin-right: auto;
+    margin-left: auto;
+    width: 60em;
+     /*
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1em;
+    height: 90%;
+    */
+}
+
+.key{
+    color: black;
+    font-weight: bold;
+}
+
+.key:hover{
+    cursor: pointer;
+}
+
+
+#sidebar{
+    float: left;
+    border-right-style: solid;
+    border-right-width: 0.1em;
+    height: inherit;
+    padding-right: 3em;
+    width: 12em;
+    background-color: white;
+}
+
+#sidebar ul{
+    list-style-type: none;
+}
+
+#linkRepetition{
+    padding-left: 1em;
+}
+
+#linkRepetition ul .key{
+    color: red;
+    /*margin-left: 2em;*/
+}
+/*
+#linkRepetition li ul li .key{
+    margin-left: 1em;
+}
+*/
+
+#linkContent{
+    background-color: white;
+    /*min-height: 10em;*/
+    float: left;
+    width: 40em;
+    padding-left: 3em;
+    padding-right: auto;
+    height: inherit;
+    /*
+    border-style:solid;
+    border-color: black;
+    */
+    border-width: 0.1em;
+    padding-left: 1em;
+    padding-top: 0em;
+
+}
+
+
+.clear{
+    clear: both;
+}
+
+#footer{
+    border-bottom: solid;
+    border-bottom-width: 0.1em; 
+}

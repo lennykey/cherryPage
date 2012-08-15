@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 import cherrypy
 import glob
 import os
@@ -106,37 +108,23 @@ class CherryPage(object):
     trenner = Trenner()
 
     @cherrypy.expose
-    def index(self):
-        #template = Template('Hello {{ name }}!')
-        #testjson = json.load('testJson.json') 
+    def index(self, user='username'):
         linksFile = open('links.json', 'r')
-        pwd = os.getcwd() 
-        print("Ort: " + os.getcwd())
-        #print(links)
-        linksList = json.load(linksFile) 
-        #google = {'Google' : 'http://www.google.de', 'Gmail' :'http://mail.google.com'}
-        #social = {'facebook' : 'http://www.facebook.de',
-        #          'Google+':'https://plus.google.com',
-        #          'Xing' : 'http://www.xing.de'
-        #         }
-        #fun = {'Reddit' : 'http://www.reddit.com'}
-
-        #print(linksList)
-        #for key, value in linksList.items():
-        #    print(key)
-        #    for subkey, subvalue in value.items():
-                #print('cool')
-               #if(subvalue is type({})):
-        #        while(isinstance(subvalue, dict)):
-        #            #print("Dict")
-        #            for subsubkey, subsubvalue in subvalue.items():
-        #                print(subsubval ue)
+        linksList = json.load(linksFile)
+        linksList2 = (str(linksList).replace('test', 'test'+user)).replace("'",'"')
+        print(linksList2.decode('latin-1'))
+        #myJson= json.loads(linksList2.encode('latin-1'))
+        #print(myJson)
+        #linksListReplaced = []
+        #def replaceMe():
+        #    for key, value in linksList.items():
+        #        value = value.replace('test', 'test'+user)
+        #        linksListReplaced.append(link)
 
 
-
-
+            
         template = jinjaEnv.get_template('index.html')
-        return template.render(name='John Doe', linksList=linksList, pwd=pwd)
+        return template.render(user=user, linksList=linksList)
 
 
 cherrypy.tree.mount(CherryPage())

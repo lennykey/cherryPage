@@ -1,0 +1,29 @@
+{
+    "Google":{
+        "Web":"www.web.de",
+        "Apps":{
+            "Drive": "DriveLink",
+            "Dropbox": "DropboxLink"
+        },
+        "Apps2":{
+            "SubDrive": "DriveLink",
+            "Subsub": {
+            "SubsubDrive": "DriveLink",
+            "SubsubDropbox": "DropboxLink"
+            }
+        },
+        "Google Main":"http://mail.google.com",
+        "G+":"http://plus.google.com"
+    },  
+    "Social":{
+        "Facebook":"http://www.facebook.de",
+        "G+":"https://plus.google.com",
+        "Xing":"http://www.xing.de",
+        "LinkedIn":"http://www.linkedin.com",
+        "Tumblr":"http://www.tumblr.com"
+    },
+    "Fun":{
+        "Reddit":"http://www.reddit.com"
+    }
+}
+

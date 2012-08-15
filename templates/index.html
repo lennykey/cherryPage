@@ -1,18 +1,29 @@
 {% extends "main.html" %}
 {% block content %}
-Ort: {{ pwd }}
-<div>
-<ul>
-{% for key, value in linksList.items() recursive %}
+<div id="content">
+<ul><li id="topBar">This is the top Bar for {{user}}</li></ul>
+<div id="sidebar">
+<ul id="linkRepetition">
+{% for key, value in linksList.items() | sort recursive  %}
     <li>
     {% if value is string %}
-        <a href="{{ value }}">{{ key }}</a>
+        <div class="link"><a href="{{ value }}">{{ key }}</a></div>
     {% else %}
-        {{ key }}
-        <ul>{{ loop(value.items()) }}</ul>
+        <div class="key">{{ key }}</div>
+        <ul>{{ loop(value.items() | sort) }}</ul>
     {% endif %}
     </li>
 {% endfor %}
 </ul>
 </div>
+<div id="linkContent">
+<div id="linkList">
+    Links
+</dib>
+</div>
+
+</div>
+<div class="clear"></div>
+<div id="footer"></div>
+
 {% endblock %}
