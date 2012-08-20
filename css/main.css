@@ -48,6 +48,7 @@ li{
 
 
 #sidebar{
+    min-height: 80%;
     float: left;
     border-right-style: solid;
     border-right-width: 0.1em;
@@ -66,7 +67,7 @@ li{
 }
 
 #linkRepetition ul .key{
-    color: red;
+    /*color: red;*/
     /*margin-left: 2em;*/
 }
 /*
@@ -77,7 +78,7 @@ li{
 
 #linkContent{
     background-color: white;
-    /*min-height: 10em;*/
+    /*min-height: 80%;*/
     float: left;
     width: 40em;
     padding-left: 3em;

@@ -1,11 +1,15 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 
 import cherrypy
 import glob
 import os
 from jinja2 import Template, Environment, PackageLoader
 import simplejson as json
+import logging
 
+
+#loggin Configuration
+logging.basicConfig(filename='cherryPage.debug.log', level=logging.DEBUG)
 
 #jinja2 environment
 jinjaEnv = Environment(loader=PackageLoader('cherryPage', 'templates'))
@@ -20,11 +24,12 @@ class OnePage(object):
 class Trenner(object):
     @cherrypy.expose
     def blog(self, jahr, monat, tag):
-        content = jahr,monat,tag
+        content = jahr, monat, tag
 
         return content
 
 #root = Trenner()
+
 
 class Formular(object):
 
@@ -49,12 +54,11 @@ class Formular(object):
                         </form>
                         ''')
 
-        content.append('username: %s passwort: %s' % (username,password))
+        content.append('username: %s passwort: %s' % (username, password))
         content.append('</body>')
         content.append('</html>')
 
         return content
-
 
 
 class HelloWorld(object):
@@ -62,7 +66,7 @@ class HelloWorld(object):
     onepage = OnePage()
     formular = Formular()
     trenner = Trenner()
-    
+
     @cherrypy.expose
     def index(self, cool=None):
         #superRoot = os.getcwd()
@@ -70,6 +74,7 @@ class HelloWorld(object):
 
         return 'Hello myWorld <a href="/formular">Link</a>'
     # Wird aufgerufen unter dem Namen repositories direkt im Root
+
     @cherrypy.expose
     def repositories(self, path):
         myFiles = []
@@ -96,9 +101,7 @@ class HelloWorld(object):
         entries.append('</body>')
         entries.append('</html>')
 
-        return entries 
-
-#cherrypy.quickstart(HelloWorld())
+        return entries
 
 
 class CherryPage(object):
@@ -110,21 +113,27 @@ class CherryPage(object):
     @cherrypy.expose
     def index(self, user='username'):
         linksFile = open('links.json', 'r')
+
         linksList = json.load(linksFile)
-        linksList2 = (str(linksList).replace('test', 'test'+user)).replace("'",'"')
-        print(linksList2.decode('latin-1'))
-        #myJson= json.loads(linksList2.encode('latin-1'))
-        #print(myJson)
-        #linksListReplaced = []
-        #def replaceMe():
-        #    for key, value in linksList.items():
-        #        value = value.replace('test', 'test'+user)
-        #        linksListReplaced.append(link)
+        logging.debug('linksList:')
+        logging.debug(linksList)
+        dump = json.dumps(linksList)
 
+        logging.debug("DICT")
+        logging.debug({'name': u'myüser'.encode('utf-8')})
+        logging.debug("DICT1")
+        logging.debug({'name': u'myüser'.encode('latin-1')})
+        logging.debug("DICT2")
+        logging.debug({'name': 'myüser'.decode('utf-8')})
+        logging.debug("DICT3")
+        logging.debug({'name': 'myüser'.decode('latin-1')})
 
-            
+        replacedDump = dump.replace(u'username'.encode('utf-8'), user.encode('utf-8'))
+        logging.debug(replacedDump)
+        linksListReplaced = json.loads(replacedDump)
+
         template = jinjaEnv.get_template('index.html')
-        return template.render(user=user, linksList=linksList)
+        return template.render(user=user, linksList=linksListReplaced)
 
 
 cherrypy.tree.mount(CherryPage())

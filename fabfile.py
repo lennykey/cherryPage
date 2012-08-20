@@ -18,3 +18,6 @@ def stop(port):
 def start(configfile):
     ''' Usage: start:configfile'''
     local('cherryd -i cherryPage -c %s &' % configfile)
+
+def debug():
+    local('tail -f cherryPage.debug.log | grep DEBUG')
