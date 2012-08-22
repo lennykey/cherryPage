@@ -7,6 +7,10 @@
     padding: 0px;
 }
 
+html{
+
+}
+
 ul{
 
 }
@@ -29,6 +33,7 @@ li{
     margin-right: auto;
     margin-left: auto;
     width: 60em;
+    height: 95%;
      /*
     border-style: solid;
     border-color: black;
@@ -48,7 +53,7 @@ li{
 
 
 #sidebar{
-    min-height: 80%;
+    /*min-height: 80%;*/
     float: left;
     border-right-style: solid;
     border-right-width: 0.1em;
