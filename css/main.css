@@ -8,7 +8,11 @@
 }
 
 html{
+    height: 100%;
+}
 
+body{
+    height: 100%;
 }
 
 ul{
@@ -33,7 +37,9 @@ li{
     margin-right: auto;
     margin-left: auto;
     width: 60em;
-    height: 95%;
+    height: 90%;
+    background-color: white;
+    /*min-height: 95%;*/
      /*
     border-style: solid;
     border-color: black;
@@ -53,11 +59,11 @@ li{
 
 
 #sidebar{
-    /*min-height: 80%;*/
+    min-height: 100%;
     float: left;
     border-right-style: solid;
     border-right-width: 0.1em;
-    height: inherit;
+    /*height: inherit;*/
     padding-right: 3em;
     width: 12em;
     background-color: white;
@@ -88,7 +94,7 @@ li{
     width: 40em;
     padding-left: 3em;
     padding-right: auto;
-    height: inherit;
+    min-height: 100%;
     /*
     border-style:solid;
     border-color: black;
@@ -107,4 +113,5 @@ li{
 #footer{
     border-bottom: solid;
     border-bottom-width: 0.1em; 
+    background-color: red;
 }
