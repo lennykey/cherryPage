@@ -8,7 +8,7 @@
     
 
     $('.key').click(function(){
-        var linkList = $('#linkList');
+        var linkList = $('#linkListInner');
         /*$(this).next().children().toggle();*/
         /*$(this).children().filter(':hidden').show();*/
         $('#sidebar ul li a').parent().parent().show();
@@ -16,13 +16,13 @@
         var links = $(this).next().find('li div a').clone();
         $('#sidebar ul li a').parent().parent().hide();
                     
-        $('#linkList').empty();
-        $('#linkList').append().html(links);
-        $('#linkList').children().each(function(){
+        linkList.empty();
+        linkList.append().html(links);
+        linkList.children().each(function(){
             $(this).append('<br />');
         });
         // linkList.hide().show();
-        linkList.hide().fadeIn(700);
+        linkList.hide().fadeIn(500);
         // linkList.animate({opacity:.5},{duration:'slow', easing: 'swing'});
 
     });

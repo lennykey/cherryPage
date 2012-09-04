@@ -20,7 +20,7 @@ ul{
 }
 
 li{
-    padding-left: 0.5em;
+    padding-left: 1em;
 }
 
 #topBar{
@@ -73,6 +73,13 @@ li{
     list-style-type: none;
 }
 
+#sidebar > ul > li{
+    list-style-type: none;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border-bottom: solid;
+    border-bottom-width: 0.1em;
+}
 #linkRepetition{
     padding-left: 1em;
 }
@@ -88,11 +95,12 @@ li{
 */
 
 #linkContent{
-    background-color: white;
+    /*position: relative;*/
+    /*top: 10em;*/
+    background-color: #C4BCA1;
     /*min-height: 80%;*/
     float: left;
     width: 40em;
-    padding-left: 3em;
     padding-right: auto;
     min-height: 100%;
     /*
@@ -100,9 +108,16 @@ li{
     border-color: black;
     */
     border-width: 0.1em;
-    padding-left: 1em;
-    padding-top: 0em;
+   
+}
 
+#linkListInner{
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 3em;
+    border-style: solid;
+    border-width: 0.1em;
+    padding: 1em;
 }
 
 
